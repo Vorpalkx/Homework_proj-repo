@@ -18,5 +18,5 @@ def placement_queens(array, n, rows, sol):
 
 n = int(input())
 array = [0 for i in range(n)]
-solution = foo(array, n, 0, 0)
+solution = placement_queens(array, n, 0, 0)
 print(solution)
