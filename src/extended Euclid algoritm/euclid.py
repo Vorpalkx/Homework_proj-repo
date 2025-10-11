@@ -7,7 +7,8 @@ def extended_gcd(a, b):
     y = x1
 
     return gcd, x, y
+
+
 a = int(input())
 b = int(input())
-print(extended_gcd(a,b))
-
+print(extended_gcd(a, b))
