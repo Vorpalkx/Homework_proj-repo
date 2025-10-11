@@ -30,7 +30,6 @@ split-on-trailing-comma = true
 
 [format]
 indent-style = "space"
-indent-width = 4
 quote-style = "single"
 skip-magic-trailing-comma = false
 line-ending = "lf"
