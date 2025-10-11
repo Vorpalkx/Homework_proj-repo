@@ -1,0 +1,26 @@
+name: Ruff PEP 8 Code Style Check
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  pep8-check:
+    name: PEP 8 Style Guide Enforcement
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run Ruff PEP 8 check
+        uses: astral-sh/ruff-action@v1
+        with:
+          args: "check --output-format=concise ."
+          
+      - name: Run Ruff format check
+        uses: astral-sh/ruff-action@v1
+        with:
+          args: "format --check ."
