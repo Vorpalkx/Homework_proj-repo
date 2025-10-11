@@ -3,50 +3,16 @@ target-version = "py312"
 
 select = [
     "E",
-    "W", 
+    "W",
     "F",
     "I",
-    "B",
-    "C4",
-    "N",
-    "UP",
 ]
 
 ignore = [
     "E501",
-    "W503",
     "E203",
-    "N802",
-    "N803",
 ]
-
-[isort]
-known-first-party = []
-combine-as-imports = true
-force-sort-within-sections = true
-order-by-type = true
-lines-between-types = 1
-split-on-trailing-comma = true
 
 [format]
 indent-style = "space"
 quote-style = "single"
-skip-magic-trailing-comma = false
-line-ending = "lf"
-
-[ruff.lint]
-class-case = "PascalCase"
-function-case = "snake_case"
-variable-case = "snake_case"
-constant-case = "UPPER_CASE"
-
-space-around-operator = true
-space-before-colon = false
-
-[per-file-ignores]
-"__init__.py" = ["F401"]
-"tests/**/*.py" = [
-    "S101",
-    "PT",
-]
-"**/migrations/**" = ["ALL"]
