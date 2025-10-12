@@ -4,7 +4,9 @@ def placement_queens(array, n, rows, sol):
 
         flag = 1
         for i in range(rows):
-            if array[i] == array[rows] or abs(array[i] - array[rows]) == abs(i - rows):
+            if array[i] == array[rows] or abs(array[i] - array[rows]) == abs(
+                i - rows
+            ):
                 flag = 0
                 break
 
