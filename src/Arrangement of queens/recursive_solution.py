@@ -1,7 +1,9 @@
 def placement_queens(array, n, rows, sol):
+    # Iterating through each position in one row
     for position in range(1, n + 1):
         array[rows] = position
 
+        # Excluding options with an intersection
         flag = 1
         for i in range(rows):
             if array[i] == array[rows] or abs(array[i] - array[rows]) == abs(
