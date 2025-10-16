@@ -39,7 +39,6 @@ void push(Stack* stack, int item)
 int pop(Stack* stack)
 {
     if (is_empty(stack)) {
-        printf("Stack is empty\n");
         return -1;
     }
     Elem* pointer = stack->top;
@@ -53,7 +52,6 @@ int pop(Stack* stack)
 int peek(Stack* stack)
 {
     if (is_empty(stack)) {
-        printf("Stack is empty\n");
         return -1;
     }
     return stack->top->value;
