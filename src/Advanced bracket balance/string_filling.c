@@ -3,7 +3,7 @@
 
 int *string_filling()
 {
-    printf("Enter a string of no more than 100 characters:\n")
+    printf("Enter a string of no more than 100 characters:\n");
     char string[100];
     int counter = 1;
     // Entering a string from the keyboard
