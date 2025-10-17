@@ -62,5 +62,4 @@ void delete_stack(Stack* stack)
     while (!is_empty(stack)) {
         pop(stack);
     }
-    free(stack);
 }
