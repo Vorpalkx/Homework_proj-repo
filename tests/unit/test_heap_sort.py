@@ -12,8 +12,8 @@ class TestHeapSortBasicCases:
             ([6, 3, 8, 1, 5, 2], [1, 2, 3, 5, 6, 8]),
             # Arrays with an odd number of elements
             ([3, 1, 2], [1, 2, 3]),
-            ([5, 3, 1, 4, 2], [1, 2, 3, 4, 5]),
-        ],
+            ([5, 3, 1, 4, 2], [1, 2, 3, 4, 5])
+        ]
     )
     def test_heap_sort_different_lengths(self, input_arr, expected):
         """Testing arrays of different lengths"""
