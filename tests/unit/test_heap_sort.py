@@ -5,7 +5,7 @@ from sort.heap_sort import heap_sort
 
 class TestHeapSortBasicCases:
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             # Arrays with an even number of elements
             ([4, 2, 1, 3], [1, 2, 3, 4]),
@@ -21,7 +21,7 @@ class TestHeapSortBasicCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             # Already sorted arrays
             ([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]),
@@ -37,7 +37,7 @@ class TestHeapSortBasicCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             # Arrays with duplicates
             ([3, 1, 4, 1, 5], [1, 1, 3, 4, 5]),
@@ -53,15 +53,15 @@ class TestHeapSortBasicCases:
         result = heap_sort(input_arr)
         assert result == expected
 
-class TestHeapSortEdgeCases:
 
+class TestHeapSortEdgeCases:
     def test_empty_list(self):
         """Testing an empty array"""
         result = heap_sort([])
         assert result == []
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([5], [5]),
             ([0], [0]),
@@ -74,7 +74,7 @@ class TestHeapSortEdgeCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([2, 1], [1, 2]),
             ([1, 2], [1, 2]),
@@ -87,7 +87,7 @@ class TestHeapSortEdgeCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([-3, -1, -2], [-3, -2, -1]),
             ([-5, -3, -5], [-5, -5, -3]),
@@ -101,7 +101,7 @@ class TestHeapSortEdgeCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([3, -2, 1, -5, 4], [-5, -2, 1, 3, 4]),
             ([-10, 15, -3, 0, 7], [-10, -3, 0, 7, 15]),
@@ -113,7 +113,7 @@ class TestHeapSortEdgeCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([3.5, 1.2, 2.8], [1.2, 2.8, 3.5]),
             ([1.1, 1.1, 1.0], [1.0, 1.1, 1.1]),
@@ -126,7 +126,7 @@ class TestHeapSortEdgeCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([1000000, 999999, 1000001], [999999, 1000000, 1000001]),
             ([10**6, 10**6 - 1, 10**6 + 1], [10**6 - 1, 10**6, 10**6 + 1]),
@@ -138,7 +138,7 @@ class TestHeapSortEdgeCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([0.0001, 0.0002, 0.00005], [0.00005, 0.0001, 0.0002]),
             ([1e-10, 2e-10, 0.5e-10], [0.5e-10, 1e-10, 2e-10]),
@@ -150,7 +150,7 @@ class TestHeapSortEdgeCases:
         assert result == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([7, 7, 7, 7, 7], [7, 7, 7, 7, 7]),
             ([0, 0, 0], [0, 0, 0]),
@@ -169,7 +169,7 @@ class TestHeapSortEdgeCases:
         assert heap_sort(large_array) == expected
 
     @pytest.mark.parametrize(
-        'input_arr, expected',
+        "input_arr, expected",
         [
             ([1, 100, 2, 99, 3, 98], [1, 2, 3, 98, 99, 100]),
             ([1000, 1, 500], [1, 500, 1000]),

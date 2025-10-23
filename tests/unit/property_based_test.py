@@ -4,8 +4,9 @@ from sort.quick_sort import quick_sort
 from sort.heap_sort import heap_sort
 from sort.gnome_sort import gnome_sort
 
+
 @pytest.mark.parametrize(
-    'func_sort',
+    "func_sort",
     [
         quick_sort,
         heap_sort,
@@ -13,7 +14,7 @@ from sort.gnome_sort import gnome_sort
     ],
 )
 @pytest.mark.parametrize(
-    'arr',
+    "arr",
     [
         ([1, 7, 3, 12, 0]),
         ([1, 2, 3, 4, 5]),
@@ -23,7 +24,6 @@ from sort.gnome_sort import gnome_sort
     ],
 )
 class TestPropertyBasedCases:
-
     def test_length_preservation(self, func_sort, arr):
         """Property: the length of the array is preserved"""
         result = func_sort(arr)

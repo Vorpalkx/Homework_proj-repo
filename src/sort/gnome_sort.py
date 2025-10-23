@@ -1,4 +1,4 @@
-def sort_step(current_arr, index = 0):
+def sort_step(current_arr, index=0):
     if index == len(current_arr):
         return current_arr
 
