@@ -17,6 +17,7 @@ select = [
     "PL",    # Pylint rules (code quality)
     "SIM",   # Code simplifications
 ]
+ignore = ["COM812"]
 
 [tool.ruff.format]
 indent-style = "space"
