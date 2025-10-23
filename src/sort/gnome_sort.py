@@ -4,7 +4,7 @@ def sort_step(current_arr, index = 0):
 
     if index == 0:
         return sort_step(current_arr, 1)
-        
+
     if current_arr[index] >= current_arr[index - 1]:
         return sort_step(current_arr, index + 1)
 
