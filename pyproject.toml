@@ -12,12 +12,16 @@ select = [
     "W29",   # flake8-whitespace
     "COM",   # flake8 Trailing commas
     "E7",    # Type checks
+    "E5",    # Line length
     "B",     # flake8-bugbear (idiomatic checks)
     "TRY",   # Exception handling
     "PL",    # Pylint rules (code quality)
     "SIM",   # Code simplifications
 ]
-ignore = ["COM812"]
+ignore = [
+    "COM812",
+    "TRY003",
+]
 
 [tool.ruff.format]
 indent-style = "space"
