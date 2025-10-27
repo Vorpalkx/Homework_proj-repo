@@ -10,7 +10,7 @@ typedef struct SingleLinkedList {
     Node *tail;
 } SingleLinkedList;
 
-void new_list(SingleLinkedList *list);
+struct SingleLinkedList* new_list();
 bool is_empty(SingleLinkedList *list);
 void add_to_begin(SingleLinkedList *list, int data);
 void add_to_end(SingleLinkedList *list, int data);
