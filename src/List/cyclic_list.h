@@ -1,13 +1,15 @@
 #pragma once
 
+#include <stdbool.h>
+
 typedef struct Node {
-    int data;
-    struct Node* next;
+   int data;
+   struct Node* next;
 } Node;
 
 typedef struct CyclicList {
-    Node* head;
-    Node* tail
+   Node* head;
+   Node* tail;
 } CyclicList;
 
 struct CyclicList* new_cycl_list();
@@ -18,3 +20,4 @@ void add_by_index_cycl_list(CyclicList* list, int data, int index);
 void remove_by_index_cycl_list(CyclicList* list, int index);
 void print_cycl_list(CyclicList* list);
 void delete_cycl_list(CyclicList* list);
+int cycl_list_length(CyclicList* list);
