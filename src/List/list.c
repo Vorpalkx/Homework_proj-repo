@@ -12,10 +12,12 @@ typedef struct SingleLinkedList {
     Node *tail;
 } SingleLinkedList;
 
-void new_list(SingleLinkedList *list)
+struct SingleLinkedList* new_list()
 {
+    SingleLinkedList *list = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
     list->head = NULL;
     list->tail = NULL;
+    return list;
 }
 
 bool is_empty(SingleLinkedList *list)
