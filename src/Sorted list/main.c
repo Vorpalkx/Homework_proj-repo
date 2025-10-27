@@ -5,9 +5,8 @@
 
 int main()
 {
-    SingleLinkedList list;
-    new_list(&list);
-    selection_menu(&list);
+    void* list = new_list();
+    selection_menu(list);
     return 0;
 }
 
