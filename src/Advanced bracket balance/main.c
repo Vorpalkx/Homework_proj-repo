@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "../Stack/stack.h"
+#include "stack.h"
 #include "string_filling.h"
 #include "bracket_balance.h"
 

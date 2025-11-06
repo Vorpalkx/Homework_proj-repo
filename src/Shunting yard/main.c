@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#include "../Stack/stack.h"
+#include "stack.h"
 #include "filling_expression.h"
 
 int get_operator_prec(char op);
