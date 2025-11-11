@@ -9,8 +9,8 @@ main.o: main.c
 filling_array.o: filling_array.c
 	gcc -c filling_array.c
 
-quick_sort.o: quick_sort.c
-	gcc -c quick_sort.c
+quick_sort.o: quick_sort.s
+	gcc -c quick_sort.s -o quick_sort.o
 
 clean:
 	rm -rf *.o sort

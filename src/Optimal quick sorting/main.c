@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "quick_sort.h"
 #include "filling_array.h"
