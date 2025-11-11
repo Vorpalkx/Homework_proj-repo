@@ -3,17 +3,17 @@
 
 #include "filling_array.h"
 
-int *filling_array()
+int *filling_array(int *cnt)
 {
     int numbers[100];
-    int counter = 1;
+    int counter = 0;
     while ((counter < 100) && scanf("%d", &numbers[counter]) == 1) {
         counter += 1;
         if (getchar() == '\n')
             break;
     }
     
-    numbers[0] = counter;
+    *cnt = counter;
     
     int *array = (int*)malloc(counter * sizeof(int));
     for (int i = 0; i < counter; i++)

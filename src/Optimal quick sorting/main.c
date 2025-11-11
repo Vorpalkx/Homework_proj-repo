@@ -7,11 +7,11 @@ int main()
 {
     int сontractorСounter = 0;
     
-    int *array = filling_array();
-    int size = array[0];
+    int size = 0;
+    int *array = filling_array(&size); 
+    quick_sort(array, 0, size - 1, &сontractorСounter);
+    free(array);
     
-    quick_sort(array, 1, size - 1, &сontractorСounter);
-
     printf("The number of elements that have changed position: %d\n", сontractorСounter);
     
     return 0;
