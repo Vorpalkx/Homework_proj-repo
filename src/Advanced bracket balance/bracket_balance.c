@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "stack.h"
+#include "../Stack/stack.h"
 
 void bracket_balance(Stack* stack, int* string)
 {
