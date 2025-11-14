@@ -15,5 +15,5 @@ int main()
     
     printf("The number of elements that have changed position: %d\n", сontractorСounter);
     
-    return 0;
+    return сontractorСounter;
 }
