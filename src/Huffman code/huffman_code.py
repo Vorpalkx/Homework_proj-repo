@@ -2,6 +2,7 @@ import pickle
 import heapq
 from collections import Counter
 
+
 class HuffmanNode:
     def __init__(self, freq, char):
         self.char = char
@@ -31,7 +32,8 @@ def build_huffman_tree(msg):
 
     return heap[0]
 
-def build_codes(node, current_code = "", codes = None):
+
+def build_codes(node, current_code="", codes=None):
     if codes is None:
         codes = {}
 
@@ -47,6 +49,7 @@ def build_codes(node, current_code = "", codes = None):
 
     return codes
 
+
 def encode(msg: str) -> tuple[str, dict[str, str]]:
     if not msg:
         return "", {}
@@ -57,6 +60,7 @@ def encode(msg: str) -> tuple[str, dict[str, str]]:
     encoded_text = "".join(codes[char] for char in msg)
 
     return encoded_text, codes
+
 
 def decode(encoded: str, table: dict[str, str]) -> str:
     reverse_code = {code: char for char, code in table.items()}
@@ -71,6 +75,7 @@ def decode(encoded: str, table: dict[str, str]) -> str:
             current_code = ""
     return decoded_text
 
+
 def file_encode(msg: str) -> str:
     encoded_text, codes = encode(msg)
 
@@ -78,6 +83,7 @@ def file_encode(msg: str) -> str:
         pickle.dump(codes, file)
 
     return encoded_text
+
 
 def file_decode(encoded: str) -> str:
     with open("codes.bin", "rb") as file:
