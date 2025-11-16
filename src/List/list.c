@@ -12,7 +12,7 @@ typedef struct SingleLinkedList {
     Node *tail;
 } SingleLinkedList;
 
-struct SingleLinkedList* new_list()
+struct SingleLinkedList* createList()
 {
     SingleLinkedList *list = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
     list->head = NULL;
@@ -20,16 +20,16 @@ struct SingleLinkedList* new_list()
     return list;
 }
 
-bool is_empty(SingleLinkedList *list)
+bool isEmpty(SingleLinkedList *list)
 {
     return list->head == NULL;
 }
 
-void add_to_begin(SingleLinkedList *list, int data)
+void addToBegin(SingleLinkedList *list, int data)
 {
     Node *new_node = (Node*)malloc(sizeof(Node));
     new_node->data = data;
-    if (is_empty(list)) {
+    if (isEmpty(list)) {
         list->head = new_node;
         list->tail = new_node;
         new_node->next = NULL;
@@ -41,11 +41,11 @@ void add_to_begin(SingleLinkedList *list, int data)
     return;
 }
 
-void add_to_end(SingleLinkedList *list, int data)
+void addToEnd(SingleLinkedList *list, int data)
 {
     Node *new_node = (Node*)malloc(sizeof(Node));
     new_node->data = data;
-    if (is_empty(list)) {
+    if (isEmpty(list)) {
         list->head = new_node;
         list->tail = new_node;
         new_node->next = NULL;
@@ -57,10 +57,10 @@ void add_to_end(SingleLinkedList *list, int data)
     return;
 }
 
-void add_by_index(SingleLinkedList *list, int data, int index)
+void addByIndex(SingleLinkedList *list, int data, int index)
 {
-    if (is_empty(list) || index < 0){
-        printf("add_by_index: Index out of range\n");
+    if (isEmpty(list) || index < 0){
+        printf("addByIndex: Index out of range\n");
         return;
     }
     
@@ -84,14 +84,14 @@ void add_by_index(SingleLinkedList *list, int data, int index)
         node = node->next;
         current_index++;
     }
-    printf("add_by_index: Index out of range\n");
+    printf("addByIndex: Index out of range\n");
     return;
 }
 
-int get_by_index(SingleLinkedList *list, int index)
+int getByIndex(SingleLinkedList *list, int index)
 {
-    if (is_empty(list) || index < 0) {
-        printf("get_by_index: Index out of range\n");
+    if (isEmpty(list) || index < 0) {
+        printf("getByIndex: Index out of range\n");
         return -1;
     }
     
@@ -116,14 +116,14 @@ int get_by_index(SingleLinkedList *list, int index)
         node = node->next;
         current_index++;
     }
-    printf("get_by_index: Index out of range\n");
+    printf("getByIndex: Index out of range\n");
     return -1;
 }
 
-void remove_by_index(SingleLinkedList *list, int index)
+void removeByIndex(SingleLinkedList *list, int index)
 {
-    if (is_empty(list) || index < 0) {
-        printf("remove_by_index: Index out of range\n");
+    if (isEmpty(list) || index < 0) {
+        printf("removeByIndex: Index out of range\n");
         return;
     }
     
@@ -150,14 +150,14 @@ void remove_by_index(SingleLinkedList *list, int index)
         node = node->next;
         current_index++;
     }
-    printf("remove_by_index: Index out of range\n");
+    printf("removeByIndex: Index out of range\n");
     return;
 }
 
-void print_list(SingleLinkedList *list)
+void printList(SingleLinkedList *list)
 {
-    if (is_empty(list)) {
-        printf("print_list: List is empty\n");
+    if (isEmpty(list)) {
+        printf("printList: List is empty\n");
         return;
     }
     Node *node = list->head;
@@ -169,10 +169,10 @@ void print_list(SingleLinkedList *list)
     return;
 }
 
-void delete_list(SingleLinkedList *list)
+void deleteList(SingleLinkedList *list)
 {
-    if (is_empty(list)) {
-        printf("delete_list: List is empty\n");
+    if (isEmpty(list)) {
+        printf("deleteList: List is empty\n");
         return;
     }
     Node *current = list->head;
