@@ -15,8 +15,8 @@ void delete_value(SingleLinkedList *list)
     int value;
     scanf("%d", &value);
     clear_input_buffer();
-
-    index = searchIndex(list, value);
+    
+    int index = searchIndexToRemove(list, value);
     if (index != -1) {
         removeByIndex(list, index);
         printf("The number was successfully deleted\n");
@@ -30,24 +30,14 @@ void add_value(SingleLinkedList *list)
     int value;
     scanf("%d", &value);
     clear_input_buffer();
-
-    Node* node = list->head;
-    if (is_empty(list) || node->data > value) {
-        add_to_begin(list, value);
-        printf("The number has been successfully added to the list\n");
-        return;
+    
+    int index = searchIndexToAdd(list, value);
+    if (index != -1) {
+        addByIndex(list, value, index);
+    } else {
+        addToEnd(list, value);
     }
-    int index = 0;
-    while (node != NULL) {
-        if (node->data > value){
-            add_by_index(list, value, index);
-            printf("The number has been successfully added to the list\n");
-            return;
-        }
-        node = node->next;
-        index++;
-    }
-    add_to_end(list, value);
+    printf("The number has been successfully added to the list\n");
     return;
 }
 
@@ -63,6 +53,7 @@ void selection_menu(SingleLinkedList *list)
     clear_input_buffer();
     switch(c) {
         case 0:
+            deleteList(list);
             return;
         case 1:
             add_value(list);
@@ -76,7 +67,7 @@ void selection_menu(SingleLinkedList *list)
             break;
         case 3:
             printf("The list at the moment: ");
-            print_list(list);
+            printList(list);
             printf("\n");
             selection_menu(list);
             break;

@@ -5,7 +5,7 @@
 
 int main()
 {
-    void* list = new_list();
+    void* list = createList();
     selection_menu(list);
     return 0;
 }
