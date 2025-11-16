@@ -16,22 +16,11 @@ void delete_value(SingleLinkedList *list)
     scanf("%d", &value);
     clear_input_buffer();
 
-    Node *node = list->head;
-    int index = 0;
-    while (node != NULL) {
-        if (node->data == value) {
-            remove_by_index(list, index);
-            printf("The number was successfully deleted\n");
-            break;
-        }
-        node = node->next;
-        index++;
+    index = searchIndex(list, value);
+    if (index != -1) {
+        removeByIndex(list, index);
+        printf("The number was successfully deleted\n");
     }
-
-    if (node == NULL) {
-        printf("There is no such number in the list\n");
-    }
-
     return;
 }
 
@@ -41,7 +30,7 @@ void add_value(SingleLinkedList *list)
     int value;
     scanf("%d", &value);
     clear_input_buffer();
-    
+
     Node* node = list->head;
     if (is_empty(list) || node->data > value) {
         add_to_begin(list, value);
