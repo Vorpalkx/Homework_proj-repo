@@ -49,7 +49,7 @@ void addToEnd(SingleLinkedList *list, int data)
         list->head = new_node;
         list->tail = new_node;
         new_node->next = NULL;
-    } else {;
+    } else {
         list->tail->next = new_node;
         list->tail = new_node;
         new_node->next = NULL;
