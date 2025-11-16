@@ -14,6 +14,7 @@ struct SingleLinkedList* createList();
 bool isEmpty(SingleLinkedList *list);
 void addToBegin(SingleLinkedList *list, int data);
 void addToEnd(SingleLinkedList *list, int data);
+int searchIndex(SingleLinkedList *list, int value);
 void addByIndex(SingleLinkedList *list, int data, int index);
 int getByIndex(SingleLinkedList *list, int index);
 void removeByIndex(SingleLinkedList *list, int index);
