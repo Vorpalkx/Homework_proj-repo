@@ -93,7 +93,6 @@ int searchIndexToAdd(SingleLinkedList *list, int value)
         node = node->next;
         index++;
     }
-    print("searchIndexToAdd: There is no such number in the list\n");
     return -1;
 }
 
