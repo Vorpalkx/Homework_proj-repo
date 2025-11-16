@@ -57,10 +57,10 @@ void addToEnd(SingleLinkedList *list, int data)
     return;
 }
 
-int searchIndex(SingleLinkedList *list, int value)
+int searchIndexToRemove(SingleLinkedList *list, int value)
 {
     if (isEmpty(list)) {
-        printf("searchIndex: List is empty\n");
+        printf("searchIndexToRemove: List is empty\n");
         return -1;
     }
     
@@ -74,7 +74,26 @@ int searchIndex(SingleLinkedList *list, int value)
         index++;
     }
     
-    printf("searchIndex: There is no such number in the list\n");
+    printf("searchIndexToRemove: There is no such number in the list\n");
+    return -1;
+}
+
+int searchIndexToAdd(SingleLinkedList *list, int value)
+{
+    if (isEmpty(list)) {
+        printf("searchIndexToAdd: List is empty\n");
+        return -1;
+    }
+    Node* node = list->head;
+    int index = 0;
+    while (node != NULL) {
+        if (node->data > value) {
+            return index;
+        }
+        node = node->next;
+        index++;
+    }
+    print("searchIndexToAdd: There is no such number in the list\n");
     return -1;
 }
 
