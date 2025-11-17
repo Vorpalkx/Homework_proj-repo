@@ -29,7 +29,6 @@ void delete_value(SingleLinkedList *list, int value)
     return;
 }
 
-
 void add_value(SingleLinkedList *list, int value)
 {
     int index = searchIndexToAdd(list, value);
