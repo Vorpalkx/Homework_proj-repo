@@ -9,13 +9,16 @@ void clear_input_buffer()
     while((c = getchar()) != '\n' && c != EOF);
 }
 
-void delete_value(SingleLinkedList *list)
-{
-    printf("Enter the number you want to delete: ");
+int data_entry() {
+    printf("Enter the value: ");
     int value;
     scanf("%d", &value);
     clear_input_buffer();
-    
+    return value;
+}
+
+void delete_value(SingleLinkedList *list, value)
+{    
     int index = searchIndexToRemove(list, value);
     if (index != -1) {
         removeByIndex(list, index);
@@ -24,13 +27,8 @@ void delete_value(SingleLinkedList *list)
     return;
 }
 
-void add_value(SingleLinkedList *list)
+void add_value(SingleLinkedList *list, value)
 {
-    printf("Enter the value: ");
-    int value;
-    scanf("%d", &value);
-    clear_input_buffer();
-    
     int index = searchIndexToAdd(list, value);
     if (index != -1) {
         addByIndex(list, value, index);
@@ -56,12 +54,12 @@ void selection_menu(SingleLinkedList *list)
             deleteList(list);
             return;
         case 1:
-            add_value(list);
+            add_value(list, data_entry());
             printf("\n");
             selection_menu(list);
             break;
         case 2:
-            delete_value(list);
+            delete_value(list, data_entry());
             printf("\n");
             selection_menu(list);
             break;
