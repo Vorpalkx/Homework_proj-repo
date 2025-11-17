@@ -17,7 +17,7 @@ int data_entry() {
     return value;
 }
 
-void delete_value(SingleLinkedList *list, value)
+void delete_value(SingleLinkedList *list, int value)
 {    
     int index = searchIndexToRemove(list, value);
     if (index != -1) {
@@ -27,7 +27,7 @@ void delete_value(SingleLinkedList *list, value)
     return;
 }
 
-void add_value(SingleLinkedList *list, value)
+void add_value(SingleLinkedList *list, int value)
 {
     int index = searchIndexToAdd(list, value);
     if (index != -1) {
