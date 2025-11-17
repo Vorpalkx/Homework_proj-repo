@@ -222,5 +222,6 @@ void deleteList(SingleLinkedList *list)
     }
     list->head = NULL;
     list->tail = NULL;
+    free(list);
     return;
 }
