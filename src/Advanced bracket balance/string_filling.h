@@ -1,3 +1,3 @@
 #pragma once
 
-int *string_filling();
+int* string_filling();
