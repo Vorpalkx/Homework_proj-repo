@@ -20,7 +20,7 @@ void bracket_balance(Stack* stack, int* string)
 
                     // Checking the matching of brackets
                     char top_el = peek(stack);
-                    if (top_el == bracket[j-1]) {
+                    if (top_el == bracket[j - 1]) {
                         pop(stack);
                     } else {
                         printf("The balance of the brackets is not respected\n");
