@@ -1,0 +1,52 @@
+name: Clang Format Check (WebKit Style)
+
+on: [push, pull_request]  # Triggers on all branches for these events
+
+jobs:
+  check-format:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Install clang-format
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-format-18
+
+    - name: Check clang-format version
+      run: clang-format-18 --version
+
+    - name: Find C/C++ files
+      id: find-files
+      run: |
+        find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' | grep -v -E '(build/|cmake-build-|\.git/)' > files.txt
+        echo "Found $(wc -l < files.txt) C/C++ files"
+
+    - name: Check formatting with WebKit style
+      run: |
+        while IFS= read -r file; do
+          if [ -f "$file" ]; then
+            echo "Checking: $file"
+            clang-format-18 -style=file --dry-run --Werror "$file"
+          fi
+        done < files.txt
+
+    - name: Show formatting differences (if any)
+      if: failure()
+      run: |
+        while IFS= read -r file; do
+          if [ -f "$file" ]; then
+            original=$(cat "$file")
+            formatted=$(clang-format-18 -style=file "$file")
+            if [ "$original" != "$formatted" ]; then
+              echo "❌ Formatting issues in: $file"
+              echo "Diff:"
+              diff -u "$file" <(echo "$formatted") || true
+              echo "---"
+            fi
+          fi
+        done < files.txt
