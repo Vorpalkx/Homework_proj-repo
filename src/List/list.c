@@ -211,7 +211,7 @@ void printList(SingleLinkedList *list)
 void deleteList(SingleLinkedList *list)
 {
     if (isEmpty(list)) {
-        printf("deleteList: List is empty\n");
+        free(list);
         return;
     }
     Node *current = list->head;
