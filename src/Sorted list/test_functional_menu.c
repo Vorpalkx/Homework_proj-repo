@@ -1,13 +1,13 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include "test_functional_menu.h"
 #include "../List/list.h"
 #include "functional_menu.h"
+#include "test_functional_menu.h"
 
-#define COLOR_RED     "\033[0;31m"
-#define COLOR_GREEN   "\033[0;32m"
-#define COLOR_RESET   "\033[0m"
+#define COLOR_RED "\033[0;31m"
+#define COLOR_GREEN "\033[0;32m"
+#define COLOR_RESET "\033[0m"
 
 int testAddIntoEmptyList()
 {
@@ -279,7 +279,7 @@ int testCompleteWorkflow()
     sorted *= node->data == 3;
     sorted *= list->tail->data == 5;
 
-    if(!sorted) {
+    if (!sorted) {
         printf(COLOR_RED "testCompleteWorkflow: sorted - failed\n" COLOR_RESET);
         deleteList(list);
         return sorted;
@@ -294,7 +294,7 @@ int testCompleteWorkflow()
     after_delete *= list->tail->data == 5;
     after_delete *= list->head->next == list->tail;
 
-    if(!after_delete) {
+    if (!after_delete) {
         printf(COLOR_RED "testCompleteWorkflow: after_delete - failed\n" COLOR_RESET);
         deleteList(list);
         return after_delete;
@@ -312,7 +312,7 @@ int testCompleteWorkflow()
     after_adding *= node->next->data == 4;
     after_adding *= list->tail->data == 5;
 
-    if(!after_adding) {
+    if (!after_adding) {
         printf(COLOR_RED "testCompleteWorkflow: after_adding - failed\n" COLOR_RESET);
         deleteList(list);
         return after_adding;
@@ -365,11 +365,8 @@ void runAllTests()
     printf("Running the tests of the sorted list...\n\n");
 
     int total_insert_tests = 5;
-    int  insert_tests = testAddIntoEmptyList()
-                        + testAddToBegin()
-                        + testAddToMiddle()
-                        + testAddToEnd()
-                        + testAddDuplicate();
+    int insert_tests =
+        testAddIntoEmptyList() + testAddToBegin() + testAddToMiddle() + testAddToEnd() + testAddDuplicate();
 
     if (total_insert_tests == insert_tests) {
         printf("\nAll insertion tests passed!\n\n");
@@ -380,11 +377,8 @@ void runAllTests()
     }
 
     int total_delete_tests = 5;
-    int delete_tests = testDeleteSingleElem()
-                        + testDeleteFirstElem()
-                        + testDeleteLastElem()
-                        + testDeleteMiddleElem()
-                        + testDeleteNonExElem();
+    int delete_tests = testDeleteSingleElem() + testDeleteFirstElem() + testDeleteLastElem() + testDeleteMiddleElem() +
+        testDeleteNonExElem();
 
     if (total_delete_tests == delete_tests) {
         printf("\nAll delete tests passed!\n\n");
@@ -395,8 +389,7 @@ void runAllTests()
     }
 
     int total_integration_tests = 2;
-    int integration_tests = testCompleteWorkflow()
-                            + testEdgeCases();
+    int integration_tests = testCompleteWorkflow() + testEdgeCases();
 
     if (total_integration_tests == integration_tests) {
         printf("\nAll integration tests passed!\n");
@@ -406,13 +399,9 @@ void runAllTests()
         printf("\n%d out of %d integration tests passed\n", integration_tests, total_integration_tests);
     }
 
-    int total_tests = total_insert_tests
-                      + total_delete_tests
-                      + total_integration_tests;
+    int total_tests = total_insert_tests + total_delete_tests + total_integration_tests;
 
-    int passed_tests = insert_tests
-                       + delete_tests
-                       + integration_tests;
+    int passed_tests = insert_tests + delete_tests + integration_tests;
 
     for (int i = 0; i < 90; i++) {
         printf("-");
