@@ -3,13 +3,13 @@
 #include <stdbool.h>
 
 typedef struct Node {
-   int data;
-   struct Node* next;
+    int data;
+    struct Node* next;
 } Node;
 
 typedef struct CyclicList {
-   Node* head;
-   Node* tail;
+    Node* head;
+    Node* tail;
 } CyclicList;
 
 struct CyclicList* new_cycl_list();
