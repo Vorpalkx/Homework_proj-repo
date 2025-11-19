@@ -1,15 +1,17 @@
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "../List/list.h"
 
 void clear_input_buffer()
 {
     int c;
-    while((c = getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
 }
 
-int data_entry() {
+int data_entry()
+{
     printf("Enter the value: ");
     int value;
     scanf("%d", &value);
@@ -18,7 +20,7 @@ int data_entry() {
 }
 
 void delete_value(SingleLinkedList *list, int value)
-{    
+{
     int index = searchIndexToRemove(list, value);
     if (index != -1) {
         removeByIndex(list, index);
@@ -39,7 +41,7 @@ void add_value(SingleLinkedList *list, int value)
     return;
 }
 
-void selection_menu(SingleLinkedList *list)
+void selection_menu(SingleLinkedList* list)
 {
     printf("Select one of the options:\n");
     printf("0 – exit\n");

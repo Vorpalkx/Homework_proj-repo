@@ -1,6 +1,6 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 typedef struct Node {
     int data;
@@ -8,42 +8,42 @@ typedef struct Node {
 } Node;
 
 typedef struct SingleLinkedList {
-    Node *head;
-    Node *tail;
+    Node* head;
+    Node* tail;
 } SingleLinkedList;
 
 struct SingleLinkedList* createList()
 {
-    SingleLinkedList *list = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
+    SingleLinkedList* list = (SingleLinkedList*)malloc(sizeof(SingleLinkedList));
     list->head = NULL;
     list->tail = NULL;
     return list;
 }
 
-bool isEmpty(SingleLinkedList *list)
+bool isEmpty(SingleLinkedList* list)
 {
     return list->head == NULL;
 }
 
-void addToBegin(SingleLinkedList *list, int data)
+void addToBegin(SingleLinkedList* list, int data)
 {
-    Node *new_node = (Node*)malloc(sizeof(Node));
+    Node* new_node = (Node*)malloc(sizeof(Node));
     new_node->data = data;
     if (isEmpty(list)) {
         list->head = new_node;
         list->tail = new_node;
         new_node->next = NULL;
     } else {
-        Node *node = list->head;
+        Node* node = list->head;
         list->head = new_node;
         new_node->next = node;
     }
     return;
 }
 
-void addToEnd(SingleLinkedList *list, int data)
+void addToEnd(SingleLinkedList* list, int data)
 {
-    Node *new_node = (Node*)malloc(sizeof(Node));
+    Node* new_node = (Node*)malloc(sizeof(Node));
     new_node->data = data;
     if (isEmpty(list)) {
         list->head = new_node;
@@ -57,14 +57,14 @@ void addToEnd(SingleLinkedList *list, int data)
     return;
 }
 
-int searchIndexToRemove(SingleLinkedList *list, int value)
+int searchIndexToRemove(SingleLinkedList* list, int value)
 {
     if (isEmpty(list)) {
         printf("searchIndexToRemove: List is empty\n");
         return -1;
     }
-    
-    Node *node = list->head;
+
+    Node* node = list->head;
     int index = 0;
     while (node != NULL) {
         if (node->data == value) {
@@ -73,12 +73,12 @@ int searchIndexToRemove(SingleLinkedList *list, int value)
         node = node->next;
         index++;
     }
-    
+
     printf("searchIndexToRemove: There is no such number in the list\n");
     return -1;
 }
 
-int searchIndexToAdd(SingleLinkedList *list, int value)
+int searchIndexToAdd(SingleLinkedList* list, int value)
 {
     if (isEmpty(list)) {
         printf("searchIndexToAdd: List is empty\n");
@@ -96,26 +96,26 @@ int searchIndexToAdd(SingleLinkedList *list, int value)
     return -1;
 }
 
-void addByIndex(SingleLinkedList *list, int data, int index)
+void addByIndex(SingleLinkedList* list, int data, int index)
 {
     if (isEmpty(list) || index < 0) {
         printf("addByIndex: Index out of range\n");
         return;
     }
-    
+
     Node* new_node = (Node*)malloc(sizeof(Node));
     new_node->data = data;
-    
+
     if (index == 0) {
         new_node->next = list->head;
         list->head = new_node;
         return;
     }
     int current_index = 0;
-    Node *node = list->head;
+    Node* node = list->head;
     while (node->next != NULL) {
         if (current_index == index - 1) {
-            Node *next_node = node->next;
+            Node* next_node = node->next;
             node->next = new_node;
             new_node->next = next_node;
             return;
@@ -127,26 +127,26 @@ void addByIndex(SingleLinkedList *list, int data, int index)
     return;
 }
 
-int getByIndex(SingleLinkedList *list, int index)
+int getByIndex(SingleLinkedList* list, int index)
 {
     if (isEmpty(list) || index < 0) {
         printf("getByIndex: Index out of range\n");
         return -1;
     }
-    
+
     if (index == 0) {
-        Node *node = list->head;
+        Node* node = list->head;
         list->head = node->next;
         if (list->head == NULL)
             list->tail = NULL;
         return node->data;
     }
-    
-    Node *node = list->head;
+
+    Node* node = list->head;
     int current_index = 0;
     while (node->next != NULL) {
         if (current_index == index - 1) {
-            Node *get_node = node->next;
+            Node* get_node = node->next;
             node->next = get_node->next;
             if (node->next == NULL)
                 list->tail = node;
@@ -159,13 +159,13 @@ int getByIndex(SingleLinkedList *list, int index)
     return -1;
 }
 
-void removeByIndex(SingleLinkedList *list, int index)
+void removeByIndex(SingleLinkedList* list, int index)
 {
     if (isEmpty(list) || index < 0) {
         printf("removeByIndex: Index out of range\n");
         return;
     }
-    
+
     if (index == 0) {
         Node* temp = list->head;
         list->head = list->head->next;
@@ -174,8 +174,8 @@ void removeByIndex(SingleLinkedList *list, int index)
             list->tail = NULL;
         return;
     }
-    
-    Node *node = list->head;
+
+    Node* node = list->head;
     int current_index = 0;
     while (node->next != NULL) {
         if (current_index == index - 1) {
@@ -193,13 +193,13 @@ void removeByIndex(SingleLinkedList *list, int index)
     return;
 }
 
-void printList(SingleLinkedList *list)
+void printList(SingleLinkedList* list)
 {
     if (isEmpty(list)) {
         printf("printList: List is empty\n");
         return;
     }
-    Node *node = list->head;
+    Node* node = list->head;
     while (node != NULL) {
         printf("%d ", node->data);
         node = node->next;
@@ -208,15 +208,15 @@ void printList(SingleLinkedList *list)
     return;
 }
 
-void deleteList(SingleLinkedList *list)
+void deleteList(SingleLinkedList* list)
 {
     if (isEmpty(list)) {
         free(list);
         return;
     }
-    Node *current = list->head;
+    Node* current = list->head;
     while (current != NULL) {
-        Node *next = current->next;
+        Node* next = current->next;
         free(current);
         current = next;
     }
