@@ -1,3 +1,3 @@
 #pragma once
 
-char *filling_expression();
+char* filling_expression();

@@ -1,9 +1,9 @@
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 #include <string.h>
 
-#include "stack.h"
 #include "filling_expression.h"
+#include "stack.h"
 
 int get_operator_prec(char op);
 
@@ -12,15 +12,15 @@ int main()
     // Stack initialization
     Stack stack;
     new_stack(&stack);
-    
+
     // Filling in an expression
-    char *expression = filling_expression();
+    char* expression = filling_expression();
     int number_characters = strlen(expression);
-    
+
     // Creating an output queue
     int output[number_characters];
     int counter = 0;
-    
+
     // Dijkstra's shunting yard algorithm
     for (int i = 0; i < number_characters; i++) {
         int token = expression[i];
@@ -40,8 +40,7 @@ int main()
             }
             pop(&stack);
         } else {
-            while ((get_operator_prec(peek(&stack)) >= get_operator_prec(token))
-                && !is_empty(&stack)) {
+            while ((get_operator_prec(peek(&stack)) >= get_operator_prec(token)) && !is_empty(&stack)) {
                 output[counter] = pop(&stack);
                 counter++;
             }
@@ -56,21 +55,26 @@ int main()
         output[counter] = pop(&stack);
         counter++;
     }
-    
+
     // Displaying the queue on the screen
     for (int i = 0; i < counter; i++)
         printf("%c ", output[i]);
     printf("\n");
-    
+
     return 0;
 }
 
 // Returns the priority of the operation
 int get_operator_prec(char op)
 {
-    switch(op) {
-        case '+': case '-': return 1;
-        case '*': case '/': return 2;
-        default: return 0;
+    switch (op) {
+    case '+':
+    case '-':
+        return 1;
+    case '*':
+    case '/':
+        return 2;
+    default:
+        return 0;
     }
 }

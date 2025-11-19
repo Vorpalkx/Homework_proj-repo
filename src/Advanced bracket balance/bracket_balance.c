@@ -17,7 +17,7 @@ void bracket_balance(Stack* stack, int* string)
                         return;
                     }
                     char top_el = peek(stack);
-                    if (top_el == bracket[j-1]) {
+                    if (top_el == bracket[j - 1]) {
                         pop(stack);
                     } else {
                         printf(":(\n");
