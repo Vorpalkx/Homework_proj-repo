@@ -13,7 +13,6 @@ typedef struct {
     int size;
 } Stack;
 
-
 void newStack(Stack* stack)
 {
     stack->top = NULL;
