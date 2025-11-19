@@ -1,6 +1,6 @@
 #include "quick_sort.h"
 
-void quick_sort(int *array, int low, int high, int *counter)
+void quick_sort(int* array, int low, int high, int* counter)
 {
     int opElem = array[high];
     int i = low - 1;
@@ -18,7 +18,7 @@ void quick_sort(int *array, int low, int high, int *counter)
     array[high] = array[i + 1];
     array[i + 1] = opElem;
     *counter += 2;
-    
+
     quick_sort(array, low, i, counter);
     quick_sort(array, i + 2, high, counter);
 }

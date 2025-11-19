@@ -3,7 +3,7 @@
 
 #include "filling_array.h"
 
-int *filling_array(int *cnt)
+int* filling_array(int* cnt)
 {
     int numbers[100];
     int counter = 0;
@@ -12,10 +12,10 @@ int *filling_array(int *cnt)
         if (getchar() == '\n')
             break;
     }
-    
+
     *cnt = counter;
-    
-    int *array = (int*)malloc(counter * sizeof(int));
+
+    int* array = (int*)malloc(counter * sizeof(int));
     for (int i = 0; i < counter; i++)
         array[i] = numbers[i];
     return array;
