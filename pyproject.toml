@@ -1,0 +1,28 @@
+[project]
+name = "Homework_proj-repo"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 79
+indent-width = 4
+
+[tool.ruff.lint]
+select = [
+    "E4",    # Import whitespace
+    "W29",   # flake8-whitespace
+    "COM",   # flake8 Trailing commas
+    "E7",    # Type checks
+    "B",     # flake8-bugbear (idiomatic checks)
+    "TRY",   # Exception handling
+    "PL",    # Pylint rules (code quality)
+    "SIM",   # Code simplifications
+]
+ignore = ["COM812"]
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "auto"
+skip-magic-trailing-comma = false
+quote-style = "double"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
