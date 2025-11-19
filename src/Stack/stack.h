@@ -12,9 +12,9 @@ typedef struct {
     int size;
 } Stack;
 
-void new_stack(Stack* stack);
-bool is_empty(Stack* stack);
+void newStack(Stack* stack);
+bool isEmpty(Stack* stack);
 void push(Stack* stack, int item);
 int pop(Stack* stack);
 int peek(Stack* stack);
-void delete_stack(Stack* stack);
+void deleteStack(Stack* stack);

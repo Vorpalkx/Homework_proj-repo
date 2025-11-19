@@ -1,3 +1,4 @@
+#include "stack.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,33 +13,34 @@ typedef struct {
     int size;
 } Stack;
 
-void new_stack(Stack* stack)
+void newStack(Stack* stack)
 {
     stack->top = NULL;
     stack->size = 0;
 }
 
-bool is_empty(Stack* stack)
+bool isEmpty(Stack* stack)
 {
     return stack->top == NULL;
 }
 
 void push(Stack* stack, int item)
 {
-    Elem* new_elem = malloc(sizeof(Elem));
-    if (!new_elem) {
+    Elem* newElem = malloc(sizeof(Elem));
+    if (!newElem) {
         printf("Memory allocation error\n");
         return;
     }
-    new_elem->value = item;
-    new_elem->next = stack->top;
-    stack->top = new_elem;
+    newElem->value = item;
+    newElem->next = stack->top;
+    stack->top = newElem;
     stack->size++;
 }
 
 int pop(Stack* stack)
 {
-    if (is_empty(stack)) {
+    if (isEmpty(stack)) {
+        printf("Stack is empty\n");
         return -1;
     }
     Elem* pointer = stack->top;
@@ -51,15 +53,17 @@ int pop(Stack* stack)
 
 int peek(Stack* stack)
 {
-    if (is_empty(stack)) {
+    if (isEmpty(stack)) {
+        printf("Stack is empty\n");
         return -1;
     }
     return stack->top->value;
 }
 
-void delete_stack(Stack* stack)
+void deleteStack(Stack* stack)
 {
-    while (!is_empty(stack)) {
+    while (!isEmpty(stack)) {
         pop(stack);
     }
+    free(stack);
 }
