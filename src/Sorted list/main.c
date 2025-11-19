@@ -9,5 +9,3 @@ int main()
     selection_menu(list);
     return 0;
 }
-
-
