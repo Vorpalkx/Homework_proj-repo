@@ -9,7 +9,7 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         
       - name: Run Ruff PEP 8 check
         uses: astral-sh/ruff-action@v1
