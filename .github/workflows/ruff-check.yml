@@ -1,10 +1,6 @@
 name: Ruff PEP 8 Code Style Check
 
-on:
-  push:
-    branches: [ main, master, develop ]
-  pull_request:
-    branches: [ main, master, develop ]
+on: [push, pull_request]
 
 jobs:
   pep8-check:
