@@ -7,14 +7,14 @@
 int main()
 {
     // Stack declaration
-    Stack bracket_stack;
-    new_stack(&bracket_stack);
+    Stack bracketStack;
+    newStack(&bracketStack);
 
     // Filling in a dynamic array using the keyboard
-    int* string = string_filling();
+    int* string = stringFilling();
 
     // Checking the string for bracket balance
-    bracket_balance(&bracket_stack, string);
+    bracketBalance(&bracketStack, string);
 
     return 0;
 }

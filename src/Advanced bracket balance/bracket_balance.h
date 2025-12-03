@@ -1,3 +1,3 @@
 #pragma once
 
-void bracket_balance(Stack* stack, int* string);
+void bracketBalance(Stack* stack, int* string);
