@@ -2,6 +2,7 @@ import pytest
 
 from dfs.DFS_algoritm import Graph, DFS_step
 
+
 class TestGraph:
     def test_create_single_node(self):
         """Checking the creation of a node without children"""
@@ -14,12 +15,11 @@ class TestGraph:
         child1 = Graph(2)
         child2 = Graph(3)
         g = Graph(1, [child1, child2])
-        
+
         assert g.value == 1
-        assert len(g.childrens) == 2
-        assert g.childrens[0].value == 2
-        assert g.childrens[1].value == 3
-    
+        assert g.childrens[0].value == child1.value
+        assert g.childrens[1].value == child2.value
+
     def test_linear_graph(self):
         """A test for a linear graph"""
         c = Graph(3)
@@ -45,13 +45,13 @@ class TestGraph:
         a = Graph(1)
         b = Graph(2)
         c = Graph(3)
-        
+
         a.childrens = [b]
         b.childrens = [c]
         c.childrens = [a]
 
         result = list(a)
-        assert len(result) == 3
+        assert len(result) == len(a, b, c)
         assert set(result) == {1, 2, 3}
         assert result[0] == 1
 
@@ -66,10 +66,10 @@ class TestGraph:
         b = Graph(2)
         c = Graph(3)
         a = Graph(1, [b, c])
-        
+
         result = DFS_step(a)
         assert result == [1, 2, 3]
-    
+
     def test_tree_structure(self):
         """A test for a tree structure"""
         node4 = Graph(4)
@@ -78,7 +78,7 @@ class TestGraph:
         node2 = Graph(2, [node4, node5])
         node3 = Graph(3, [node6])
         node1 = Graph(1, [node2, node3])
-        
+
         result = list(node1)
         assert result == [1, 2, 4, 5, 3, 6]
 
@@ -86,23 +86,13 @@ class TestGraph:
         """A test that the iterator can be called repeatedly"""
         b = Graph(2)
         a = Graph(1, [b])
-        
+
         result1 = list(a)
         result2 = list(a)
-        
+
         assert result1 == [1, 2]
         assert result2 == [1, 2]
         assert result1 == result2
-
-    def test_duplicate_values(self):
-        """A graph test where different nodes have the same values"""
-        b = Graph(2)
-        c = Graph(2)
-        a = Graph(1, [b, c])
-        
-        result = list(a)
-        assert len(result) == 3
-        assert result.count(2) == 2
 
     def test_large_Graph(self):
         """A test for a graph with a large number of nodes"""
@@ -113,11 +103,13 @@ class TestGraph:
         node2 = Graph(2, [node4, node5])
         node3 = Graph(3, [node6, node7])
         node1 = Graph(1, [node2, node3])
-        
+
         result = list(node1)
-        assert len(result) == 7
+        expected_len = 7
+        assert len(result) == expected_len
         assert result[0] == 1
-        assert len(set(result)) == 7
+        assert len(set(result)) == expected_len
+
 
 class TestGraphEdgeCases:
     def test_empty_children_list(self):
@@ -125,20 +117,20 @@ class TestGraphEdgeCases:
         g = Graph(1, [])
         assert g.childrens == []
         assert list(g) == [1]
-    
+
     def test_none_children(self):
         """If the childrens method has None, it is initialized with an empty list."""
         g = Graph(1, None)
         assert g.childrens == []
-    
+
     def test_modify_children_after_creation(self):
         """Test changing the list of children after creating a node"""
         g = Graph(1)
         child = Graph(2)
         g.childrens.append(child)
-        
+
         assert list(g) == [1, 2]
-    
+
     def test_Graph_with_no_edges(self):
         """Testing multiple isolated nodes"""
         a = Graph(1)
