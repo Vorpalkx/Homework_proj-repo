@@ -1,6 +1,6 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #include "list.h"
 
@@ -73,8 +73,7 @@ void clearInputBuffer()
 bool checkPalindrome(SingleLinkedList* list)
 {
     if (list->len == 0) {
-        puts("List is empty")
-        return false;
+        puts("List is empty") return false;
     }
     int index1 = list->len / 2;
     int index2;
@@ -91,6 +90,6 @@ bool checkPalindrome(SingleLinkedList* list)
             return false;
         }
     } while (index2 != 0);
-    
+
     return true;
 }

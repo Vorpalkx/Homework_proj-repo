@@ -54,7 +54,7 @@ int searchIndexData(SingleLinkedList* list, int index)
         if (node->index == index) {
             return node->data;
         }
-        node = node -> next;
+        node = node->next;
     }
     puts("Index out of range");
     return 0;

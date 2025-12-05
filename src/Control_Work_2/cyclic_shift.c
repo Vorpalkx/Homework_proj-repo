@@ -6,7 +6,7 @@ int power(int data, int degree);
 
 int main()
 {
-    bool binaryNumber[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1};
+    bool binaryNumber[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1 };
     int maxDecNum = 0;
     for (int i = 0; i < 32; i++) {
         maxDecNum = (binToDec(binaryNumber) > maxDecNum) ? binToDec(binaryNumber) : maxDecNum;
