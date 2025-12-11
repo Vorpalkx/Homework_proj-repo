@@ -1,6 +1,4 @@
-#include "quick_sort.h"
-
-void quick_sort(int *array, int low, int high, int *counter)
+void quick_sort(int* array, int low, int high, int* counter)
 {
     int opElem = array[high];
     int i = low - 1;
