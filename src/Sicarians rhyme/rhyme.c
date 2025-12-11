@@ -21,5 +21,6 @@ int main()
        remove_by_index_cycl_list(list, index);
    }
    printf("The number of the remaining Sicarii: %d\n", list->head->data);
+   delete_cycl_list(list)
    return 0;
 }

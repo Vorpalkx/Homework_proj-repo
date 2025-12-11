@@ -38,7 +38,6 @@ void add_to_begin(SingleLinkedList *list, int data)
         list->head = new_node;
         new_node->next = node;
     }
-    return;
 }
 
 void add_to_end(SingleLinkedList *list, int data)
