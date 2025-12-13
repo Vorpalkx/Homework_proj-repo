@@ -8,9 +8,9 @@ int main()
     int x_bin = sumBinDigits(x);
     int y = 25;
     int y_bin = sumBinDigits(y);
-    
+
     printf("%d\n", (x_bin > y_bin) ? x : y);
-    
+
     return 0;
 }
 

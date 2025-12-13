@@ -1,11 +1,11 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX_SIZE 1000
 
 int main()
 {
-    int counter = 0; 
+    int counter = 0;
     int numbers[MAX_SIZE];
     int input;
 
@@ -20,7 +20,7 @@ int main()
 
     for (int i = 0; i < counter; i++) {
         int cnt = 0;
-        for (int j = 0; j<counter; j++) {
+        for (int j = 0; j < counter; j++) {
             if (numbers[i] == numbers[j] - 1) {
                 cnt++;
             }
