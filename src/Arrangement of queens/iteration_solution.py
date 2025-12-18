@@ -1,20 +1,22 @@
 import itertools
 
-n = int(input())
-counter = 0
-
-# Going through all possible combinations
-for permutations in itertools.permutations(range(n)):
-    flag = 1
-    # Excluding options with an intersection
-    for i in range(n):
-        for j in range(i + 1, n):
-            if abs(permutations[i] - permutations[j]) == abs(i - j):
-                flag = 0
+def total_n_queens(n: int) -> int:
+    counter = 0
+    # Going through all possible combinations
+    for permutations in itertools.permutations(range(n)):
+        flag = True
+        # Excluding options with an intersection
+        for i in range(n):
+            for j in range(i + 1, n):
+                if abs(permutations[i] - permutations[j]) == abs(i - j):
+                    flag = False
+                    break
+            if not flag:
                 break
-        if flag == 0:
-            break
-    if flag == 1:
-        counter += 1
+        if flag:
+            counter += 1
+    return counter
 
-print(counter)
+n = int(input())
+amount = total_n_queens(n)
+print(amount)

@@ -4,15 +4,13 @@ def placement_queens(array, n, rows, sol):
         array[rows] = position
 
         # Excluding options with an intersection
-        flag = 1
+        flag = True
         for i in range(rows):
-            if array[i] == array[rows] or abs(array[i] - array[rows]) == abs(
-                i - rows
-            ):
-                flag = 0
+            if array[i] == array[rows] or abs(array[i] - array[rows]) == abs(i - rows):
+                flag = False
                 break
 
-        if flag == 1:
+        if flag:
             if rows != n - 1:
                 sol = placement_queens(array, n, rows + 1, sol)
             else:
