@@ -1,5 +1,6 @@
 import itertools
 
+
 def total_n_queens(n: int) -> int:
     counter = 0
     # Going through all possible combinations
@@ -16,6 +17,7 @@ def total_n_queens(n: int) -> int:
         if flag:
             counter += 1
     return counter
+
 
 n = int(input())
 amount = total_n_queens(n)

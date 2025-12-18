@@ -6,7 +6,9 @@ def placement_queens(array, n, rows, sol):
         # Excluding options with an intersection
         flag = True
         for i in range(rows):
-            if array[i] == array[rows] or abs(array[i] - array[rows]) == abs(i - rows):
+            if array[i] == array[rows] or abs(array[i] - array[rows]) == abs(
+                i - rows
+            ):
                 flag = False
                 break
 
