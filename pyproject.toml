@@ -2,27 +2,50 @@
 name = "Homework_proj-repo"
 
 [tool.ruff]
-target-version = "py312"
-line-length = 79
-indent-width = 4
+lint.select = [
+    "E",   # pycodestyle - Basic rules PEP 8 (formatting)
+    "W",   # pycodestyle - Additional stylistic warnings
+    "F",   # pyflakes - Logical errors
+    "I",   # isort - Sorting imports
+    "B",   # flake8-bugbear - Smart recommendations
+    "UP",  # pyupgrade - Modern syntax
+    "C90", # mccabe - Code complexity (indirectly related to readability)
+    "N",   # pep8-naming
+    "RUF", # Ruff's own rules
 
-[tool.ruff.lint]
-select = [
-    "E4",    # Import whitespace
-    "W29",   # flake8-whitespace
-    "COM",   # flake8 Trailing commas
-    "E7",    # Type checks
-    "B",     # flake8-bugbear (idiomatic checks)
-    "TRY",   # Exception handling
-    "PL",    # Pylint rules (code quality)
-    "SIM",   # Code simplifications
+    "A",   # flake8-builtins - Name conflicts (built-in)
+    "COM", # flake8-commas - Commas and trailing commas
+    "ERA", # eradicate - The commented code (readability)
+    "PT",  # flake8-pytest-style - The style of the tests
+    "Q",   # flake8-quotes
 ]
-ignore = ["COM812"]
+
+lint.ignore = [
+    "E501",
+    "E203",
+    "B008",
+    "COM812",
+]
+
+
+line-length = 79
+fix = true
+target-version = "py312"
+output-format = "full"
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+force-wrap-aliases = true
+combine-as-imports = true
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+multiline-quotes = "double"
+docstring-quotes = "double"
+avoid-escape = true
+
 
 [tool.ruff.format]
-indent-style = "space"
-line-ending = "auto"
-skip-magic-trailing-comma = false
 quote-style = "double"
-docstring-code-format = true
-docstring-code-line-length = "dynamic"
+indent-style = "space"
+skip-magic-trailing-comma = false
