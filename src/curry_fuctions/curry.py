@@ -7,6 +7,10 @@ def curry(func, arity):
     if arity < 0:
         raise ValueError(f"Expected arity >= 0, received {arity}")
 
+    check_arg = func.__code__
+    if arity > check_arg.co_argcount:
+        raise ValueError(f"Expected arity <= {check_arg.co_argcount}, received {arity}")
+
     def collect_args(collected_args):
         def wrapper(next_arg):
             length_args = len(collected_args) + 1
@@ -39,6 +43,8 @@ def uncurry(func, arity):
     def wrapper(*args):
         if len(args) != arity:
             raise TypeError(f"Expected {arity} arguments, got {len(args)}")
+        if arity == 0:
+            return func() if callable(func) else func
 
         result = func
         for arg in args:
