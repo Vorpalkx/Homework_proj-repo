@@ -6,3 +6,4 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 
 add_subdirectory(src/Stack)
 add_subdirectory(src/Advanced\ bracket\ balance)
+add_subdirectory(src/Binary_Representation)
